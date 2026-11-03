@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; margin: 0; background: radial-gradient(120% 80% at 50% 0%, #1a0f3d 0%, #070815 55%, #05060f 100%); color: #e8ecff; overflow: hidden; overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent; user-select: none; font-family: 'Space Grotesk', system-ui, sans-serif; }
+canvas { touch-action: none; display: block; }
+button:focus-visible { outline: 2px solid #22f3ff; outline-offset: 3px; }
+
+.glass { background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.03)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(170,150,255,.28); border-radius: 1.5rem; box-shadow: 0 10px 50px rgba(0,0,0,.45), 0 0 44px rgba(110,80,255,.2), inset 0 1px 0 rgba(255,255,255,.18); }
+.vignette { position: fixed; inset: 0; pointer-events: none; z-index: 40;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%), repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 3px); }
+.bg-grid { position: absolute; left: -50%; right: -50%; bottom: 0; height: 70%;
+  background-image: linear-gradient(rgba(34,243,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(162,75,255,.16) 1px, transparent 1px);
+  background-size: 64px 64px; transform: perspective(420px) rotateX(60deg); transform-origin: 50% 100%;
+  animation: gridmove 2.4s linear infinite; -webkit-mask-image: linear-gradient(to top, #000 25%, transparent 90%); mask-image: linear-gradient(to top, #000 25%, transparent 90%); }
+@keyframes gridmove { to { background-position: 0 64px, 0 0; } }
+.logo-glow { animation: flick 5s infinite; }
+@keyframes flick { 0%,90%,100% { opacity: 1 } 91% { opacity: .55 } 92% { opacity: 1 } 95% { opacity: .75 } }
+@media (prefers-reduced-motion: reduce) { .bg-grid, .logo-glow { animation: none; } }
